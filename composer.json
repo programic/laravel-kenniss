@@ -1,0 +1,57 @@
+{
+    "name": "programic/laravel-kenniss",
+    "license": "proprietary",
+    "type": "package",
+    "description": "Laravel extension for KENNISS API",
+    "keywords": [
+        "programic",
+        "laravel",
+        "KENNISS"
+    ],
+    "readme": "README.md",
+    "authors": [
+        {
+            "name": "Programic",
+            "email": "development@programic.com",
+            "homepage": "https://programic.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php" : "^8.0",
+        "laravel/framework" : "^8.0|^9.0|^10.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^7.0|^8.0",
+        "programic/pro-backend-quality": "^2.0|^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Programic\\Kenniss\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Programic\\Kenniss\\Test\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Programic\\Kenniss\\KennissServiceProvider"
+            ]
+        },
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "config": {
+        "process-timeout": 0,
+        "sort-packages": true,
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
