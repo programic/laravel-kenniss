@@ -40,7 +40,7 @@
             "providers": [
                 "Programic\\Kenniss\\KennissServiceProvider"
             ]
-        },
+        }
     },
     "scripts": {
         "test": "phpunit"
