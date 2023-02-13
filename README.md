@@ -23,10 +23,42 @@ Add KENNISS credentials to your services config and .env:
 ```
 
 ## Usage
+
+### Retrieve client
+#### Get client from IoC
 ```php
-Kenniss::post();
+$kenniss = app(Programic\Kenniss\Kenniss::class);
+```
+#### By Dependency Injecten
+```php
+// 
+use Programic\Kenniss\Kenniss;
+
+class UserController extends Controller {
+    public function __invoke($client Kenniss)
+    {
+        //
+    }
+}
 ```
 
+### Using client
+
+#### Default requests
+```php
+$kenniss->get('/users');
+$kenniss->post('/users', []);
+$kenniss->patch('/users/1', []);
+$kenniss->delete('/users/1', []);
+```
+#### Reference requests
+```php
+$user = $kenniss->users()->find(1);
+$user = $kenniss->users()->create([]);
+$user = $kenniss->users()->update(1, []);
+$user = $kenniss->users()->delete(1);
+```
+There are more references available. The IDE will autocomplete the available references.
 
 ## Testing
 ```bash

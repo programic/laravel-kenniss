@@ -3,20 +3,26 @@
 namespace Programic\Kenniss;
 
 use Illuminate\Http\Client\Response;
-use Programic\Kenniss\Http\References;
 use Programic\Kenniss\Http\Request;
+use Programic\Kenniss\Traits\HasObjectRequests;
 
 class Kenniss
 {
+    use HasObjectRequests;
+
     protected Request $http;
 
-    public function __construct()
+    public function __construct(public ?string $url = null)
     {
         $this->http = new Request();
     }
 
-    public function get(string $url, array $queryParams = []): Response
+    public function get(?string $url = null, ?array $queryParams = null): Response
     {
+        if (!$url) {
+            $url = $this->url;
+        }
+
         return $this->http->get($url, $queryParams);
     }
 

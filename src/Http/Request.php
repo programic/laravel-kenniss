@@ -11,10 +11,12 @@ class Request
     protected PendingRequest $http;
 
     public function __construct() {
-        $this->http = Http::kenniss();
+        $this->http = Http::kenniss()
+            ->acceptJson()
+            ->withOptions(['verify' => false]);
     }
 
-    public function get(string $url, array $queryParams = []): Response
+    public function get(string $url, array | null $queryParams = []): Response
     {
         return $this->http->get($url, $queryParams);
     }

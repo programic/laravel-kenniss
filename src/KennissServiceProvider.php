@@ -1,6 +1,6 @@
 <?php
 
-namespace Programic\Nexudus;
+namespace Programic\Kenniss;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Http;
@@ -16,9 +16,9 @@ class KennissServiceProvider extends ServiceProvider
     {
         $config = config('services.kenniss');
         $apiKey = data_get($config, 'apiKey', '');
-        $url = data_get($config, 'baseUrl', 'https://spaces.nexudus.com');
+        $url = data_get($config, 'baseUrl', '');
 
-        Http::macro('kenniss', fn () => Http::withBasicAuth($apiKey)->baseUrl($url));
+        Http::macro('kenniss', fn () => Http::withToken($apiKey)->baseUrl($url));
     }
 
     /**
