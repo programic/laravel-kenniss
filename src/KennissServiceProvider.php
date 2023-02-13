@@ -2,17 +2,16 @@
 
 namespace Programic\Kenniss;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\ServiceProvider;
 
 class KennissServiceProvider extends ServiceProvider
 {
     /**
      * Boot the service provider.
      *
-     * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         $config = config('services.kenniss');
         $apiKey = data_get($config, 'apiKey', '');
@@ -24,9 +23,8 @@ class KennissServiceProvider extends ServiceProvider
     /**
      * Register the service provider.
      *
-     * @return void
      */
-    public function register()
+    public function register(): void
     {
         $this->app->singleton(Kenniss::class, fn () => new Kenniss());
         $this->app->alias(Kenniss::class, 'kenniss');

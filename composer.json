@@ -22,8 +22,8 @@
         "laravel/framework" : "^8.0|^9.0|^10.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^7.0|^8.0",
-        "programic/pro-backend-quality": "^2.0|^3.0"
+        "orchestra/testbench": "^8.0",
+        "programic/pro-backend-quality": "^3.0"
     },
     "autoload": {
         "psr-4": {
@@ -43,13 +43,17 @@
         }
     },
     "scripts": {
-        "test": "phpunit"
+        "test": "phpunit",
+        "lint": [
+            "@php vendor/bin/ecs --ansi check"
+        ]
     },
     "config": {
         "process-timeout": 0,
         "sort-packages": true,
         "allow-plugins": {
-            "phpstan/extension-installer": true
+            "phpstan/extension-installer": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
         }
     },
     "minimum-stability": "dev",

@@ -8,7 +8,7 @@
 A Laravel API wrapper for KENNISS API
 
 ## Installation
-This package requires PHP 8.0 and Laravel 9.0 or higher.
+This package requires PHP 8.2 and Laravel 10 or higher.
 
 ```
 composer require programic/laravel-kenniss
