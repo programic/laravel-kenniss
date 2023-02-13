@@ -31,7 +31,6 @@ $kenniss = app(Programic\Kenniss\Kenniss::class);
 ```
 #### By Dependency Injecten
 ```php
-// 
 use Programic\Kenniss\Kenniss;
 
 class UserController extends Controller {
