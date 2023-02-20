@@ -1,4 +1,4 @@
-# Programic - Laravel Kenniss
+# Programic - Laravel KENNISS
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/programic/laravel-kenniss.svg?style=flat-square)](https://packagist.org/packages/programic/laravel-kenniss)
 [![Tests](https://github.com/programic/laravel-kenniss/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/programic/laravel-kenniss/actions/workflows/tests.yml)
@@ -34,7 +34,7 @@ $kenniss = app(Programic\Kenniss\Kenniss::class);
 use Programic\Kenniss\Kenniss;
 
 class UserController extends Controller {
-    public function __invoke($client Kenniss)
+    public function __invoke(Kenniss $client)
     {
         //
     }

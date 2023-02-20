@@ -51,7 +51,7 @@ readonly class ObjectRequest
     {
         $url = "{$this->url}/{$id}";
 
-        return $this->request->post($url, $data);
+        return $this->request->patch($url, $data);
     }
 
     public function delete(int $id): Response

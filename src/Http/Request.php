@@ -28,7 +28,7 @@ class Request
     /**
      * @param array<string, mixed> | null $bodyParams
      */
-    public function post(string $url, array $bodyParams = []): Response
+    public function post(string $url, array $bodyParams): Response
     {
         return $this->http->post($url, $bodyParams);
     }
@@ -36,16 +36,20 @@ class Request
     /**
      * @param array<string, mixed> | null $bodyParams
      */
-    public function put(string $url, array $bodyParams = []): Response
+    public function put(string $url, array $bodyParams): Response
     {
-        return $this->http->put($url, $bodyParams);
+        $bodyParams['_method'] = 'PUT';
+
+        return $this->http->post($url, $bodyParams);
     }
 
     /**
      * @param array<string, mixed> | null $bodyParams
      */
-    public function patch(string $url, array $bodyParams = []): Response
+    public function patch(string $url, array $bodyParams): Response
     {
+        $bodyParams['_method'] = 'PATCH';
+
         return $this->http->patch($url, $bodyParams);
     }
 
