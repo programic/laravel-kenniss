@@ -10,11 +10,15 @@ class Request
 {
     protected PendingRequest $http;
 
-    public function __construct()
+    public function __construct(?string $apiKey = null)
     {
         $this->http = Http::kenniss()
             ->acceptJson()
             ->withOptions(['verify' => false]);
+
+        if ($apiKey) {
+            $this->http->withToken($apiKey);
+        }
     }
 
     /**
