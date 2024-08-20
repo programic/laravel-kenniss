@@ -12,9 +12,9 @@ class Kenniss
 
     protected Request $http;
 
-    public function __construct(public ?string $url = null)
+    public function __construct(public ?string $url = null, ?string $apiKey = null)
     {
-        $this->http = new Request();
+        $this->http = new Request($apiKey);
     }
 
     /**
